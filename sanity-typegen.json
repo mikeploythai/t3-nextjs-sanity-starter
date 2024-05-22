@@ -1,0 +1,5 @@
+{
+  "path": "./src/**/*.{ts,tsx}",
+  "schema": "schema.json",
+  "generates": "./studio/types.ts"
+}

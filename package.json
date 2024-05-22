@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "build": "next build",
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "sanity:types": "NODE_ENV=development pnpm dlx sanity schema extract --enforce-required-fields && NODE_ENV=development pnpm dlx sanity typegen generate && rm -rf ./schema.json"
   },
   "dependencies": {
     "@sanity/image-url": "^1.0.2",

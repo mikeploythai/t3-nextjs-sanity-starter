@@ -23,6 +23,7 @@ export default defineConfig({
   plugins: [
     structureTool(),
     pagesTool({
+      creatablePages: ["basicPage"],
       previewUrl: {
         draftMode: {
           enable: "/api/draft",
