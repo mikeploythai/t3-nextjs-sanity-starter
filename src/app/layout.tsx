@@ -1,6 +1,8 @@
 import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
+import { draftMode } from "next/headers";
+import LiveVisualEditing from "~/components/LiveVisualEditing";
 
 export const metadata = {
   title: "Create T3 App",
@@ -15,7 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        {draftMode().isEnabled && <LiveVisualEditing />}
+      </body>
     </html>
   );
 }

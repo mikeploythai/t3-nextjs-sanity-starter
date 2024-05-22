@@ -5,6 +5,7 @@
  */
 
 import { visionTool } from "@sanity/vision";
+import { pages as pagesTool } from "@tinloof/sanity-studio";
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 
@@ -17,10 +18,17 @@ export default defineConfig({
   basePath: "/studio",
   projectId: env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: env.NEXT_PUBLIC_SANITY_DATASET,
-  // Add and edit the content schema in the './sanity/schema' folder
+  // Add and edit the content schema in the './studio/schema' folder
   schema,
   plugins: [
     structureTool(),
+    pagesTool({
+      previewUrl: {
+        draftMode: {
+          enable: "/api/draft",
+        },
+      },
+    }),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: env.NEXT_PUBLIC_SANITY_API_VERSION }),

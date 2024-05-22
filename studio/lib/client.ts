@@ -8,4 +8,8 @@ export const client = createClient({
   apiVersion: env.NEXT_PUBLIC_SANITY_API_VERSION,
   useCdn: false,
   perspective: "published",
+  stega: {
+    enabled: false,
+    studioUrl: "/studio",
+  },
 });
